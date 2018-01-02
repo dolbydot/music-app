@@ -1,0 +1,237 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body,section{
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+    font:14px/1.5 cursive;
+}
+
+a{
+    text-decoration: none;
+    color: #444;
+}
+
+ul,li{
+    list-style: none;
+}
+
+.layout{
+    margin: 0 auto;
+    width: 600px;
+    @media(min-width:700px){
+        width: 600px;
+    }
+    @media(min-width:900px){
+        width: 800px;
+    }
+    @media(min-width:1000px){
+        width: 900px;
+    }
+    @media(min-width:1200px){
+        width: 1100px;
+    }
+}
+
+#page-cover{
+    display: none;
+}
+
+.bg{
+    position: absolute;
+    z-index: -1;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    background: rgba(0, 0, 0, .6) center center no-repeat;
+    background-size: cover;
+    filter: blur(4px);
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, .4)
+    }
+}
+
+main{
+    padding-top: 12vh;
+    height: calc(100% - 24vh);
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .aside{
+        float: left;
+        >figure{
+            width: 46vh;
+            height: 46vh;
+            background: url('http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-middle') center center;
+            background-size: cover;
+        }
+        .actions{
+            display: flex;
+            margin-top: 4vh; 
+        }
+        .iconfont{
+            flex: 1; 
+            text-align: center;
+            font-size: 5vh;
+            color: rgba(255,255,255,.4);
+            transition: color .4s;
+            cursor: pointer;
+        }
+        .iconfont:hover{
+            color: white;
+        }
+        .iconfont.active{
+            color: #ff5722;
+        }
+    }
+    .details{
+        margin-left: 56vh;
+        color: white;
+        .tag{
+            font-size: 2vh;
+            padding: .4em .8em;
+            background: #2e6eec;
+        }
+        h1{
+            font-size: 6vh;
+            margin-top: 2vh;
+        }
+    }
+    .icons{
+        display: flex;
+        font-size: 3vh;
+        margin-top: 12vh;
+        li{
+            flex: 1;
+        }
+        .iconfont{
+            font-size: 3vh;
+            margin-right: 1vh;
+        }
+    }
+    .area-bar{
+        margin-top: 10vh;
+        display: flex;
+        align-items: center;
+        .bar{
+            position: relative;
+            flex: 1;
+            height: .8vh;
+            border-radius: .2vh;
+            background: rgba(255, 255, 255, .4);
+        }
+        .current-time{
+            width: 3vh;
+            font-size: 2vh;
+            margin-left: 1vh;
+        }
+        .bar-progress{
+            position: absolute; 
+            height: .8vh;
+            width: 0%;
+            transition: width .8s;
+            background: white;
+            border-radius: .2vh;
+        }
+    }
+    .author{
+        font-size: 2vh;
+        margin-top: 2vh;
+        color: rgba(255, 255, 255, .6);
+    }
+    .lyric{
+        font-size: 3vh;
+        margin-top: 3vh;
+        color: white;
+    }
+}
+
+footer{
+    height: 24vh;
+    color: white;
+    background: rgba(255, 255, 255, .2);
+    box-shadow: 0px -.25vh .25vh .25vh rgba(255, 255, 255, .2);
+    >.layout{
+        position: relative;
+    }
+    .box{
+        position: relative;
+        overflow: hidden;
+        height: 24vh;
+    }
+    ul{
+        position: absolute;
+        left: 0;
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    li{
+        float: left;
+        margin-top: 1vh;
+        margin: 2vh 2vh 0 2vh;
+        width: 20vh;
+        height: 20vh;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            box-shadow: 0 0 .5vh .5vh rgba(255, 255, 255, .8);
+        }
+        .cover{
+            height: 16vh;
+            background-size: cover;
+            background-position: center center; 
+        }
+    }
+    h3{
+        font-size: 2vh;
+        color: rgba(255, 255, 255, .6);
+        margin-top: 1vh;
+    }
+    li.active{
+        box-shadow: 0 0 .5vh .5vh rgba(255, 255, 255, .8);
+    }
+    .iconfont{
+        position: absolute;
+        top: 4vh;
+        font-size: 6vh;
+        color: rgba(255, 255, 255, .4);
+        opacity: 0; 
+        transition: all .4s;
+        cursor: pointer;
+        &:hover{
+            color: rgba(255, 255, 255, .8);
+        }
+    }
+    &:hover .iconfont{
+        opacity: 1;
+    }
+    .icon-left{
+        left: -8vh;
+    }
+    .icon-right{
+        right: -8vh;
+    }
+}
+
+.boomText{
+    opacity: 0;
+    display: inline-block;
+}
