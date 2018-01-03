@@ -81,8 +81,8 @@ main {
       cursor: pointer; }
     main .aside .iconfont:hover {
       color: white; }
-     main .aside .iconfont.active {
-      color: #ff5722; } 
+    main .aside .iconfont.active {
+      color: #ff5722; }
   main .details {
     margin-left: 56vh;
     color: white; }
@@ -152,8 +152,7 @@ footer {
       clear: both; }
   footer li {
     float: left;
-    margin-top: 1vh;
-    margin: 2vh 2vh 0 2vh;
+    margin: 2vh 3vh 0 1vh;
     width: 20vh;
     height: 20vh;
     text-align: center;
@@ -175,7 +174,7 @@ footer {
     top: 4vh;
     font-size: 6vh;
     color: rgba(255, 255, 255, 0.4);
-    opacity: 0; 
+    opacity: 0;
     transition: all .4s;
     cursor: pointer; }
     footer .iconfont:hover {
