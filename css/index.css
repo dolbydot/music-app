@@ -81,8 +81,8 @@ main {
       cursor: pointer; }
     main .aside .iconfont:hover {
       color: white; }
-    /* main .aside .iconfont.active {
-      color: #ff5722; } */
+     main .aside .iconfont.active {
+      color: #ff5722; } 
   main .details {
     margin-left: 56vh;
     color: white; }

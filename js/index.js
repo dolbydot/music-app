@@ -11,7 +11,7 @@ var EventCenter = {
 var Fm = {
     init: function () {
         this.channelId = 'public_shiguang_80hou'
-        this.channelName = '90后'
+        this.channelName = '80后'
         this.$container = $('#page-music main')
         this.audio = new Audio()
         this.audio.autoplay = true
@@ -24,7 +24,7 @@ var Fm = {
     playInit: function () {
         //如果标记了‘我的最爱’，在footer的第一个选项显示‘我的最爱’，否则触发loadSong()
         if (this.collections.length > 0) {
-            EventCenter.fire('select-album', {
+            EventCenter.fire('select-albumn', {
                 channelId: '0',
                 channelName: '我的最爱'
             })
@@ -34,7 +34,7 @@ var Fm = {
     },
     bind: function () {
         var _this = this
-        EventCenter.on('select-album', function (e, channel) {
+        EventCenter.on('select-albumn', function (e, channel) {
             console.log('select', channel)
             _this.channelId = channel.channelId
             _this, channelName = channel.channelName
@@ -79,11 +79,11 @@ var Fm = {
         //改变状态后将当前状态缓存下来，除非手动清理不然一直都在
         this.$container.find('.btn-collect').on('click', function () {
             var $btn = $(this)
-            if ($btn.hasClass('icon-heart2')) {
-                $btn.removeClass('icon-heart2')
+            if ($btn.hasClass('active')) {
+                $btn.removeClass('active')
                 delete _this.collections[_this.currentSong.sid]
             } else {
-                $(this).addClass('icon-heart')
+                $(this).addClass('active')
                 _this.collections[_this.currentSong.sid] = _this.currentSong
             }
             _this.saveToLocal()
@@ -108,20 +108,20 @@ var Fm = {
         this.$container.find('.btn-play').removeClass('icon-play').addClass('icon-pause')
         this.$container.find('.aside figure').css('background-image', 'url(' + song.picture + ')')
         $('.bg').css('background-image', 'url(' + song.picture + ')')
-        this.$container.find('.detail h1').text(song.title)
-        this.$container.find('.detail .author').text(song.artist)
+        this.$container.find('.details h1').text(song.title)
+        this.$container.find('.details .author').text(song.artist)
         this.$container.find('.tag').text(this.channelName)
 
         if (this.collections[song.sid]) {
-            this.$container.find('.btn-collect').removeClass('icon-heart').addClass('icon-heart2')
+            this.$container.find('.btn-collect').addClass('active')
         } else {
-            this.$container.find('.btn-collect').removeClass('icon-heart2').addClass('icon-heart')
+            this.$container.find('.btn-collect').removeClass('active')
         }
 
         this.loadLyric(song.sid)
     },
     updateState: function () {
-        this.$container.find('.current-time').text(formatTime())
+        this.$container.find('.current-time').text(this.formatTime())
         this.$container.find('.bar-progress').css('width', this.audio.currentTime / this.audio.duration * 100 + '%')
     },
     formatTime: function () {
@@ -164,10 +164,11 @@ var Fm = {
             })
     },
     setLyric: function () {
-        if (this.lyricObj && this.lyricObj[formatTime()]) {
-            this.$container.find('.lyric p').text(this.lyricObj[formatTime()]).boomText()
+        if (this.lyricObj && this.lyricObj[this.formatTime()]) {
+            this.$container.find('.lyric p')
+                .text(this.lyricObj[this.formatTime()]).boomText()
         }
-        console.log(formatTime())
+        console.log(this.formatTime())
     },
 }
 
