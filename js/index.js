@@ -202,4 +202,4 @@ $.fn.boomText = function (type) {
     }, 300)
 }
 
-// Fm.init()
+Fm.init()
