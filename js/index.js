@@ -289,7 +289,7 @@ var Fm = {
     },
 }
 
-//歌词逐字滚动效果组件
+//歌词效果组件
 $.fn.boomText = function (type) {
     type = type || 'rollIn'
     console.log(type)
@@ -311,6 +311,8 @@ $.fn.boomText = function (type) {
         }
     }, 300)
 }
+
+$('p').boomText('rollIn')//逐字滚动
 
 Footer.init()
 Fm.init()
