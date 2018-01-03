@@ -61,7 +61,7 @@ var Footer = {
         })
 
         this.$footer.on('click', 'li', function () {
-            // $(this).addClass('active').siblings().removeClass('active')
+            $(this).addClass('active').siblings().removeClass('active')
             EventCenter.fire('select-albumn', {
                 channelId: $(this).attr('data-channel-id'),
                 channelName: $(this).attr('data-channel-name')
