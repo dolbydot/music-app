@@ -168,14 +168,13 @@ var Fm = {
                 _this.lyricObj = lyricObj
             })
     },
-    setLyric: function () {
-         var _this = this
-        if (this.lyricObj && this.lyricObj[_this.formatTime()]) {
+    setLyric: function () {  
+        if (this.lyricObj && this.lyricObj[this.formatTime()]) {
             this.$container.find('.lyric p')
-                .text(this.lyricObj[_this.formatTime()])
+                .text(this.lyricObj[this.formatTime()])
                 .boomText()
         }
-        console.log(_this.formatTime())
+        console.log(this.formatTime())
     },
 }
 
