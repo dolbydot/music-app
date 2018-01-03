@@ -65,13 +65,17 @@ var Fm = {
         })
 
         this.audio.addEventListener('pause', function () {
-            console.log('pause')
-            clearInterval(_this.clock)
+            if (_this.audio.currentTime === _this.audio.duration) {
+                _this.loadSong()
+            } else {
+                console.log('pause')
+                clearInterval(_this.clock)
+            }
         })
 
         this.audio.addEventListener('end', function () {
             console.log('end')
-            _this.loadSong()
+
         })
 
         //如果已’喜欢‘,再次点击取消喜欢，样式改变且将该曲目从‘我的喜欢’专辑中移除
