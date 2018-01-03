@@ -1,15 +1,15 @@
 var EventCenter = {
-    on: function (type, handler) {
+    on(type, handler) {
         $(document).on(type, handler)
     },
-    fire: function (type, data) {
+    fire(type, data) {
         //trigger()方法触发被选元素的指定事件类型
         $(document).trigger(type, data)
     }
 }
 
 var Footer = {
-    init: function () {
+    init() {
         this.$footer = $('footer')
         this.$ul = this.$footer.find('ul')
         this.$box = this.$footer.find('.box')
@@ -22,7 +22,7 @@ var Footer = {
         this.bind()
         this.render()
     },
-    bind: function () {
+    bind() {
         var _this = this
         this.$rightBtn.on('click', function () {
             if (_this.isAnimate) return
@@ -78,7 +78,7 @@ var Footer = {
                 console.log('error')
             })
     },
-    renderFooter: function (channels) {
+    renderFooter(channels) {
         console.log(channels)
         var html = ''
         channels.unshift({
@@ -97,7 +97,7 @@ var Footer = {
         this.$ul.html(html)
         this.setStyle()
     },
-    setStyle: function () {
+    setStyle() {
         var count = this.$footer.find('li').length
         var width = this.$footer.find('li').outerWidth(true)
         this.$ul.css({
@@ -107,7 +107,7 @@ var Footer = {
 }
 
 var Fm = {
-    init: function () {
+    init() {
         this.channelId = 'public_shiguang_80hou'
         this.channelName = 'Dot'
         this.$container = $('#page-music main')
@@ -119,7 +119,7 @@ var Fm = {
         this.bind()
         this.playInit()
     },
-    playInit: function () {
+    playInit() {
         //如果标记了‘我的最爱’，在footer的第一个选项显示‘我的最爱’，否则触发loadSong()
         if (this.collections.length > 0) {
             EventCenter.fire('select-albumn', {
@@ -130,7 +130,7 @@ var Fm = {
             this.loadSong()
         }
     },
-    bind: function () {
+    bind() {
         var _this = this
         EventCenter.on('select-albumn', function (e, channel) {
             console.log('select', channel)
@@ -192,7 +192,7 @@ var Fm = {
             _this.saveToLocal()
         })
     },
-    loadSong: function () {
+    loadSong() {
         var _this = this
         //如果是’我的最爱‘，则播放我的最爱里的曲目
         if (this.channelId === '0') {
@@ -204,7 +204,7 @@ var Fm = {
                 })
         }
     },
-    play: function (song) {
+    play(song) {
         console.log(song)
         this.currentSong = song
         this.audio.src = song.url
@@ -223,7 +223,7 @@ var Fm = {
 
         this.loadLyric(song.sid)
     },
-    updateState: function () {
+    updateState() {
         this.$container.find('.current-time').text(this.formatTime())
         this.$container.find('.bar-progress').css('width', this.audio.currentTime / this.audio.duration * 100 + '%')
 
@@ -238,7 +238,7 @@ var Fm = {
             _this.audio.currentTime = _this.audio.duration * percentage
         })
     },
-    formatTime: function () {
+    formatTime() {
         var totalMinutes = Math.floor(this.audio.duration / 60)
         if (totalMinutes < 10) {
             var timeStr = '0' + Math.floor(this.audio.currentTime / 60) + ':'
@@ -247,20 +247,20 @@ var Fm = {
         }
         return timeStr
     },
-    loadFromLocal: function () {
+    loadFromLocal() {
         return JSON.parse(localStorage['collections'] || '{}')
     },
-    saveToLocal: function () {
+    saveToLocal() {
         localStorage['collections'] = JSON.stringify(this.collections)
     },
-    loadCollection: function () {
+    loadCollection() {
         var keyArray = Object.keys(this.collections)
         if (keyArray.length === 0) return
         var randomIndex = Math.floor(Math.random() * keyArray.length)
         var randomSid = keyArray[randomIndex]
         this.play(this.collections[randomSid])
     },
-    loadLyric: function (sid) {
+    loadLyric(sid) {
         var _this = this
         $.getJSON('//jirenguapi.applinzi.com/fm/getLyric.php', { sid: sid })
             .done(function (ret) {
@@ -278,7 +278,7 @@ var Fm = {
                 console.log(_this.lyricObj)
             })
     },
-    setLyric: function () {
+    setLyric() {
         // console.log(this.lyricObj)
         // if (this.lyricObj && this.lyricObj[this.formatTime()]) {
         //     this.$container.find('.lyric p')
