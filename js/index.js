@@ -312,7 +312,5 @@ $.fn.boomText = function (type) {
     }, 300)
 }
 
-$('p').boomText('rollIn')//逐字滚动
-
 Footer.init()
 Fm.init()
