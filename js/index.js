@@ -11,7 +11,7 @@ var EventCenter = {
 var Fm = {
     init: function () {
         this.channelId = 'public_shiguang_80hou'
-        this.channelName = '80后'
+        this.channelName = 'Dot'
         this.$container = $('#page-music main')
         this.audio = new Audio()
         this.audio.autoplay = true
@@ -65,6 +65,7 @@ var Fm = {
         })
 
         this.audio.addEventListener('pause', function () {
+            //没找到一曲播放完毕自动播放下一首的api，所以写了以下代码
             if (_this.audio.currentTime === _this.audio.duration) {
                 _this.loadSong()
             } else {
@@ -131,7 +132,7 @@ var Fm = {
     formatTime: function () {
         var totalMinutes = Math.floor(this.audio.duration / 60)
         if (totalMinutes < 10) {
-            var timeStr = Math.floor(this.audio.currentTime / 60) + ':'
+            var timeStr ='0'+ Math.floor(this.audio.currentTime / 60) + ':'
                 + (Math.floor(this.audio.currentTime) % 60 / 100)
                     .toFixed(2).substr(2)//如果有小数，小数四舍五入，只获取整数秒数
         }
@@ -154,7 +155,7 @@ var Fm = {
         var _this = this
         $.getJSON('//jirenguapi.applinzi.com/fm/getLyric.php', { sid: sid })
             .done(function (ret) {
-                console.log(ret.lyric)
+                // console.log(ret.lyric)
                 var lyricObj = {}
                 ret.lyric.split('\n').forEach(function (line) {
                     var timeArr = line.match(/\d{2}:\d{2}/g)
@@ -168,11 +169,13 @@ var Fm = {
             })
     },
     setLyric: function () {
-        if (this.lyricObj && this.lyricObj[this.formatTime()]) {
+         var _this = this
+        if (this.lyricObj && this.lyricObj[_this.formatTime()]) {
             this.$container.find('.lyric p')
-                .text(this.lyricObj[this.formatTime()]).boomText()
+                .text(this.lyricObj[_this.formatTime()])
+                .boomText()
         }
-        console.log(this.formatTime())
+        console.log(_this.formatTime())
     },
 }
 
@@ -199,4 +202,4 @@ $.fn.boomText = function (type) {
     }, 300)
 }
 
-Fm.init()
+// Fm.init()
