@@ -8,6 +8,104 @@ var EventCenter = {
     }
 }
 
+var Footer = {
+    init: function () {
+        this.$footer = $('footer')
+        this.$ul = this.$footer.find('ul')
+        this.$box = this.$footer.find('.box')
+        this.$leftBtn = this.$footer.find('.icon-left')
+        this.$rightBtn = this.$footer.find('.icon-right')
+        this.isToEnd = false
+        this.isToStart = false
+        this.isAnimate = false
+
+        this.bind()
+        this.render()
+    },
+    bind: function () {
+        var _this = this
+        this.$rightBtn.on('click', function () {
+            if (_this.isAnimate) return
+            var itemWidth = _this.$box.find('li').outerWidth(true)//包含内边距外边距及边框
+            var rowCount = Math.floor(_this.$box.width() / itemWidth)
+            if (!_this.isToEnd) {
+                _this.isAnimate = true
+                _this.$ul.animate({
+                    left: '-=' + rowCount * itemWidth
+                }, 400, function () {
+                    _this.isAnimate = false
+                    _this.isToStart = false
+                    if (parseFloat(_this.$box.width()) - parseFloat(_this.$ul.css('left')) >= parseFloat(_this.$ul.css('width'))) {
+                        _this.isToEnd = true
+                    }
+                })
+            }
+        })
+
+        this.$leftBtn.on('click', function () {
+            if (_this.isAnimate) return
+            var itemWidth = _this.$box.find('li').outerWidth(true)
+            var rowCount = Math.floor(_this.$box.width() / itemWidth)
+            if (!_this.isToStart) {
+                _this.isAnimate = true
+                _this.$ul.animate({
+                    left: '+=' + rowCount * itemWidth
+                }, 400, function () {
+                    _this.isToEnd = false
+                    _this.isAnimate = false
+                    if (parseFloat(_this.$ul.css('left')) >= 0) {
+                        _this.isToStart = true
+                    }
+                })
+            }
+        })
+
+        this.$footer.on('click', 'li', function () {
+            // $(this).addClass('active').siblings().removeClass('active')
+            EventCenter.fire('select-albumn', {
+                channelId: $(this).attr('data-channel-id'),
+                channelName: $(this).attr('data-channel-name')
+            })
+        })
+    },
+    render() {
+        var _this = this
+        $.getJSON('//jirenguapi.applinzi.com/fm/getChannels.php')
+            .done(function (ret) {
+                console.log(ret)
+                _this.renderFooter(ret.channels)
+            }).fail(function () {
+                console.log('error')
+            })
+    },
+    renderFooter: function (channels) {
+        console.log(channels)
+        var html = ''
+        channels.unshift({
+            channel_id: 0,
+            name: '我的最爱',
+            cover_small: 'http://cloud.hunger-valley.com/17-10-24/1906806.jpg-small',
+            cover_middle: 'http://cloud.hunger-valley.com/17-10-24/1906806.jpg-middle',
+            cover_big: 'http://cloud.hunger-valley.com/17-10-24/1906806.jpg-big',
+        })
+        channels.forEach(function (channel) {
+            html += '<li data-channel-id=' + channel.channel_id + ' data-channel-name=' + channel.name + '>'
+                + '  <div class="cover" style="background-image:url(' + channel.cover_small + ')"></div>'
+                + '  <h3>' + channel.name + '</h3>'
+                + '</li>'
+        })
+        this.$ul.html(html)
+        this.setStyle()
+    },
+    setStyle: function () {
+        var count = this.$footer.find('li').length
+        var width = this.$footer.find('li').outerWidth(true)
+        this.$ul.css({
+            width: count * width + 'px'
+        })
+    }
+}
+
 var Fm = {
     init: function () {
         this.channelId = 'public_shiguang_80hou'
@@ -132,7 +230,7 @@ var Fm = {
     formatTime: function () {
         var totalMinutes = Math.floor(this.audio.duration / 60)
         if (totalMinutes < 10) {
-            var timeStr ='0'+ Math.floor(this.audio.currentTime / 60) + ':'
+            var timeStr = '0' + Math.floor(this.audio.currentTime / 60) + ':'
                 + (Math.floor(this.audio.currentTime) % 60 / 100)
                     .toFixed(2).substr(2)//如果有小数，小数四舍五入，只获取整数秒数
         }
@@ -155,7 +253,7 @@ var Fm = {
         var _this = this
         $.getJSON('//jirenguapi.applinzi.com/fm/getLyric.php', { sid: sid })
             .done(function (ret) {
-                // console.log(ret.lyric)
+                console.log(ret.lyric)
                 var lyricObj = {}
                 ret.lyric.split('\n').forEach(function (line) {
                     var timeArr = line.match(/\d{2}:\d{2}/g)
@@ -166,9 +264,11 @@ var Fm = {
                     }
                 })
                 _this.lyricObj = lyricObj
+                console.log(_this.lyricObj)
             })
     },
-    setLyric: function () {  
+    setLyric: function () {
+        // console.log(this.lyricObj)
         if (this.lyricObj && this.lyricObj[this.formatTime()]) {
             this.$container.find('.lyric p')
                 .text(this.lyricObj[this.formatTime()])
@@ -201,4 +301,5 @@ $.fn.boomText = function (type) {
     }, 300)
 }
 
+Footer.init()
 Fm.init()
