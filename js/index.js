@@ -228,7 +228,7 @@ var Fm = {
         this.$container.find('.bar-progress').css('width', this.audio.currentTime / this.audio.duration * 100 + '%')
 
         var _this = this
-        $('.bar').addEventListener('mousedown', function (e) {
+        $('.bar').on('mousedown', function (e) {
             var barWidth = window.getComputedStyle($('.bar')).width
                 .replace(/\.\d+px$/, '')
             var posX = e.clientX//当前点击位置距离浏览器窗口原点的水平距离
