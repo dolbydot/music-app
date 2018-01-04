@@ -286,7 +286,7 @@ var Fm = {
             + (Math.floor(this.audio.currentTime) % 60 / 100).toFixed(2).substr(2)
         if (this.lyricObj && this.lyricObj[timeStr]) {
             this.$container.find('.lyric p').text(this.lyricObj[timeStr])
-                .boomText()
+                .boomText('rollIn')
         }
         console.log(timeStr)
     },
