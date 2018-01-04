@@ -302,7 +302,7 @@ $.fn.boomText = function (type) {
             .split('').map(function (word) {
                 return '<span class="boomText">' + word + '</span>'
             })
-        return arr
+        // return arr.join('')
     })
 
     var index = 0
