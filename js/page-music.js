@@ -222,16 +222,16 @@ var Fm = {
         this.$container.find('.current-time').text(this.formatTime())
         this.$container.find('.bar-progress').css('width', this.audio.currentTime / this.audio.duration * 100 + '%')
 
-        var _this = this
-        $('.bar').on('mousedown', function (e) {
-            var barWidth = window.getComputedStyle($('.bar')).width
-                .replace(/\.\d+px$/, '')
-            var posX = e.clientX//当前点击位置距离浏览器窗口原点的水平距离
-            var targetLeft = $('.bar').offsetLeft//$('.bar')原点距离main原点的水平距离
-            var outerLeft = _this.$container.getBoundingClientRect().x//main原点距离浏览器窗口原点的水平距离
-            var percentage = (posX - targetLeft - outerLeft) / barWidth
-            _this.audio.currentTime = _this.audio.duration * percentage
-        })
+        // var _this = this
+        // $('.bar').on('mousedown', function (e) {
+        //     var barWidth = window.getComputedStyle($('.bar')).width
+        //         .replace(/\.\d+px$/, '')
+        //     var posX = e.clientX//当前点击位置距离浏览器窗口原点的水平距离
+        //     var targetLeft = $('.bar').offsetLeft//$('.bar')原点距离main原点的水平距离
+        //     var outerLeft = _this.$container.getBoundingClientRect().x//main原点距离浏览器窗口原点的水平距离
+        //     var percentage = (posX - targetLeft - outerLeft) / barWidth
+        //     _this.audio.currentTime = _this.audio.duration * percentage
+        // })
     },
     formatTime() {
         var totalMinutes = Math.floor(this.audio.duration / 60)
