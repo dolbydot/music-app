@@ -104,7 +104,7 @@
       border-radius: .2vh;
       background: rgba(255, 255, 255, 0.4); }
     #page-music > main .area-bar .current-time {
-      width: 3vh;
+      width: 6vh;
       font-size: 2vh;
       margin-left: 1vh; }
     #page-music > main .area-bar .bar-progress {
