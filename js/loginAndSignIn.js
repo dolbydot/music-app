@@ -1,20 +1,21 @@
 
 var modal = $('.modal')
+var loginAndSignIn = $('#loginAndSignIn')
 var loginHref = $('.loginHref')
 var registerHref = $('.registerHref')
 var modalCt = $('.modal-ct')
 
 //modal状态切换
 $('.icon-login').on('click', function () {
-    modal.show().addClass('active')
+    loginAndSignIn.show()
 })
-$('.modal').on('click', '.close', function () {
-    modal.hide().removeClass('active')
+modal.on('click', '.close', function () {
+    loginAndSignIn.hide()
 })
 $('#loginAndSignIn main').on('click', function () {
-    modal.hide().removeClass('active')
+    loginAndSignIn.hide()
 })
-$('.modal').on('click', function (e) {
+modal.on('click', function (e) {
     e.stopPropagation()//阻止事件传播——防止点击modal本身时隐藏
 })
 

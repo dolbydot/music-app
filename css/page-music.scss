@@ -1,3 +1,17 @@
+#page-music{
+    >header {
+        position: absolute;
+        top: 10px;
+        width: 100%;
+        >.icon-login {
+            position: absolute;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+        }
+    }
+}
+
 .layout{
     margin: 0 auto;
     width: 600px;
@@ -40,7 +54,7 @@
     }
 }
 
-main{
+#page-music>main{
     padding-top: 12vh;
     height: calc(100% - 24vh);
     &:after{

@@ -1,21 +1,12 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box; }
-
-html, body, section {
-  height: 100%;
-  overflow: hidden; }
-
-body {
-  font: 14px/1.5 cursive; }
-
-a {
-  text-decoration: none;
-  color: #444; }
-
-ul, li {
-  list-style: none; }
+#page-music > header {
+  position: absolute;
+  top: 10px;
+  width: 100%; }
+  #page-music > header > .icon-login {
+    position: absolute;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer; }
 
 .layout {
   margin: 0 auto;
@@ -55,79 +46,79 @@ ul, li {
     left: 0;
     background: rgba(0, 0, 0, 0.4); }
 
-main {
+#page-music > main {
   padding-top: 12vh;
   height: calc(100% - 24vh); }
-  main:after {
+  #page-music > main:after {
     content: '';
     display: block;
     clear: both; }
-  main .aside {
+  #page-music > main .aside {
     float: left; }
-    main .aside > figure {
+    #page-music > main .aside > figure {
       width: 46vh;
       height: 46vh;
       background: url("http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-middle") center center;
       background-size: cover; }
-    main .aside .actions {
+    #page-music > main .aside .actions {
       display: flex;
       margin-top: 4vh; }
-    main .aside .iconfont {
+    #page-music > main .aside .iconfont {
       flex: 1;
       text-align: center;
       font-size: 5vh;
       color: rgba(255, 255, 255, 0.4);
       transition: color .4s;
       cursor: pointer; }
-    main .aside .iconfont:hover {
+    #page-music > main .aside .iconfont:hover {
       color: white; }
-    main .aside .iconfont.active {
+    #page-music > main .aside .iconfont.active {
       color: #ff5722; }
-  main .details {
+  #page-music > main .details {
     margin-left: 56vh;
     color: white; }
-    main .details .tag {
+    #page-music > main .details .tag {
       font-size: 2vh;
       padding: .4em .8em;
       background: #2e6eec; }
-    main .details h1 {
+    #page-music > main .details h1 {
       font-size: 6vh;
       margin-top: 2vh; }
-  main .icons {
+  #page-music > main .icons {
     display: flex;
     font-size: 3vh;
     margin-top: 12vh; }
-    main .icons li {
+    #page-music > main .icons li {
       flex: 1; }
-    main .icons .iconfont {
+    #page-music > main .icons .iconfont {
       font-size: 3vh;
       margin-right: 1vh; }
-  main .area-bar {
+  #page-music > main .area-bar {
     margin-top: 10vh;
     display: flex;
     align-items: center; }
-    main .area-bar .bar {
+    #page-music > main .area-bar .bar {
       position: relative;
       flex: 1;
       height: .8vh;
       border-radius: .2vh;
       background: rgba(255, 255, 255, 0.4); }
-    main .area-bar .current-time {
+    #page-music > main .area-bar .current-time {
       width: 3vh;
       font-size: 2vh;
       margin-left: 1vh; }
-    main .area-bar .bar-progress {
+    #page-music > main .area-bar .bar-progress {
       position: absolute;
       height: .8vh;
       width: 0%;
       transition: width .8s;
       background: white;
       border-radius: .2vh; }
-  main .author {
+  #page-music > main .author {
     font-size: 2vh;
     margin-top: 2vh;
     color: rgba(255, 255, 255, 0.6); }
-  main .lyric {
+  #page-music > main .lyric {
     font-size: 3vh;
     margin-top: 3vh;
     color: white; }
