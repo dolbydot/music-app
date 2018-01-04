@@ -307,7 +307,7 @@ $.fn.boomText = function (type) {
     var index = 0
     var $boomTexts = $(this).find('span')
     var clock = setInterval(function () {
-        $boomTexts.eq(index).addClass('animated' + type)
+        $boomTexts.eq(index).addClass('animated ' + type)
         index++
         if (index >= $boomTexts.length) {
             clearInterval(clock)
