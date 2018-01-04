@@ -275,20 +275,20 @@ var Fm = {
     },
     setLyric() {
         console.log(this.lyricObj)
-        if (this.lyricObj && this.lyricObj[this.formatTime()]) {
-            this.$container.find('.lyric p')
-                .text(this.lyricObj[this.formatTime()])
-                .boomText()
-        }
-        console.log(this.formatTime())
-
-        // var timeStr = '0' + Math.floor(this.audio.currentTime / 60) + ':'
-        //     + (Math.floor(this.audio.currentTime) % 60 / 100).toFixed(2).substr(2)
-        // if (this.lyricObj && this.lyricObj[timeStr]) {
-        //     this.$container.find('.lyric p').text(this.lyricObj[timeStr])
+        // if (this.lyricObj && this.lyricObj[this.formatTime()]) {
+        //     this.$container.find('.lyric p')
+        //         .text(this.lyricObj[this.formatTime()])
         //         .boomText()
         // }
-        // console.log(timeStr)
+        // console.log(this.formatTime())
+
+        var timeStr = '0' + Math.floor(this.audio.currentTime / 60) + ':'
+            + (Math.floor(this.audio.currentTime) % 60 / 100).toFixed(2).substr(2)
+        if (this.lyricObj && this.lyricObj[timeStr]) {
+            this.$container.find('.lyric p').text(this.lyricObj[timeStr])
+                .boomText()
+        }
+        console.log(timeStr)
     },
 }
 
