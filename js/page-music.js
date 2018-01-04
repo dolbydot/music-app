@@ -302,12 +302,13 @@ $.fn.boomText = function (type) {
             .split('').map(function (word) {
                 return '<span class="boomText">' + word + '</span>'
             })
-        return arr.join('')
+        return arr
     })
 
     var index = 0
     var $boomTexts = $(this).find('span')
     var clock = setInterval(function () {
+        //一定要注意以下'animated '内的空格！！！！
         $boomTexts.eq(index).addClass('animated ' + type)
         index++
         if (index >= $boomTexts.length) {
