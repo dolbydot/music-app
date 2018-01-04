@@ -277,11 +277,12 @@ var Fm = {
         console.log(this.lyricObj)
         if (this.lyricObj && this.lyricObj[this.formatTime()]) {
             this.$container.find('.lyric p')
-                .text(this.lyricObj[this.formatTime()])
+                // .text(this.lyricObj[this.formatTime()])
                 .boomText()
         }
         // console.log(this.formatTime())
 
+        // 以下代码也可，一样的效果
         // var timeStr = '0' + Math.floor(this.audio.currentTime / 60) + ':'
         //     + (Math.floor(this.audio.currentTime) % 60 / 100).toFixed(2).substr(2)
         // if (this.lyricObj && this.lyricObj[timeStr]) {
