@@ -1,8 +1,8 @@
 
-var modal = $('.modal'),
-var loginHref = $('.loginHref'),
-var registerHref = $('.registerHref'),
-var modalCt = $('.modal-ct');
+var modal = $('.modal')
+var loginHref = $('.loginHref')
+var registerHref = $('.registerHref')
+var modalCt = $('.modal-ct')
 
 //modal状态切换
 $('.icon-login').on('click', function () {
