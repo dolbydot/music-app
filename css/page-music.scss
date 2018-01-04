@@ -222,6 +222,7 @@ footer{
 }
 
 .boomText{
+// 歌词动画组件部分，添加了boomText、animated、type类之后，逻辑中会先显示当前时间的完整歌词，再执行一次歌词动画，我们需要的是只显示动画效果的歌词，所以设置.boomText类的opacity属性值为0以隐藏首先加载出来的整行歌词。
     opacity: 0;
     display: inline-block;
 }
