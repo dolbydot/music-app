@@ -303,7 +303,6 @@ $.fn.boomText = function (type) {
                 return '<span class="boomText">' + word + '</span>'
             })
         return arr.join('')
-        $('.lyric span').hide()
     })
 
     var index = 0
@@ -311,7 +310,6 @@ $.fn.boomText = function (type) {
     var clock = setInterval(function () {
         //一定要注意以下'animated '内的空格！！！！
         $boomTexts.eq(index).addClass('animated ' + type)
-        $('.lyric span').show()
         index++
         if (index >= $boomTexts.length) {
             clearInterval(clock)
