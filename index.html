@@ -6,13 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music App</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_435708_i2pftovpihdrt3xr.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css"> 
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/page-music.css">
+    <link rel="stylesheet" href="./css/loginAndSignIn.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_435708_rornmb2hrotg9zfr.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
     <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 </head>
 
 <body>
+    <section id="loginAndSignIn">
+        <header>
+            <a href="#" class="iconfont icon-login">&#xe689;</a>
+        </header>
+
+        <main>
+            <div class="modal-ct login">
+                <div class=" modal modal-login">
+                    <a href="#" class="close">&times;</a>
+
+                    <div class="tab">
+                        <a href="#" class="loginHref">登录</a>
+                        <a href="#" class="registerHref">注册</a>
+                    </div>
+
+                    <div class="content">
+                        <div class="errormsg"></div>
+                        <form action="/login" method="post">
+                            <div class="ipt-field">
+                                <span class="iconfont icon-username">&#xe638;</span>
+                                <input name="username" type="text" placeholder="用户名">
+                            </div>
+                            <div class="ipt-field">
+                                <span class="iconfont icon-password">&#xe620;</span>
+                                <input name="password" type="password" placeholder="密码">
+                            </div>
+                            <div class="ipt-field">
+                                <input type="submit" value="登录">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class=" modal modal-register">
+                    <a href="#" class="close">&times;</a>
+
+                    <div class="tab">
+                        <a href="#" class="loginHref">登录</a>
+                        <a href="#" class="registerHref">注册</a>
+                    </div>
+
+                    <div class="content">
+                        <div class="errormsg"></div>
+                        <form action="/login" method="post">
+                            <div class="ipt-field">
+                                <span class="iconfont icon-username">&#xe638;</span>
+                                <input name="username" type="text" placeholder="用户名">
+                            </div>
+                            <div class="ipt-field">
+                                <span class="iconfont icon-password">&#xe620;</span>
+                                <input name="password" type="password" placeholder="请输入密码">
+                            </div>
+                            <div class="ipt-field">
+                                <span class="iconfont icon-password">&#xe620;</span>
+                                <input name="password2" type="password" placeholder="请再次输入密码">
+                            </div>
+                            <div class="ipt-field">
+                                <input type="submit" value="注册">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
     <section id="page-music">
         <main class="layout">
             <div class="aside">
@@ -59,9 +128,8 @@
     <section id="page-cover"></section>
     <div class="bg"></div>
 
-    <script src="./js/index.js">
-
-    </script>
+    <script src="./js/page-music.js"></script>
+    <script src="./js/loginAndSignIn.js"></script>
 </body>
 
 </html>
