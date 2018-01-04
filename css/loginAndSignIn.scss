@@ -1,10 +1,14 @@
 #loginAndSignIn{
+    z-index: 999;
     position: absolute;
     display: none;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    >main{
+        background: rgba(0, 0, 0, .7);
+    }
 }
 
 .modal {
@@ -15,7 +19,6 @@
     width: 400px;
     padding: 16px;
     background: white;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
     .close {
         display: block;
         font-size: 1.3em;
