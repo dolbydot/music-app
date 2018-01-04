@@ -149,6 +149,9 @@
         font-size: 3vh;
         margin-top: 3vh;
         color: white;
+        &.animated{
+            color: red;
+        }
     }
 }
 
