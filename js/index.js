@@ -72,14 +72,14 @@ var Footer = {
         var _this = this
         $.getJSON('//jirenguapi.applinzi.com/fm/getChannels.php')
             .done(function (ret) {
-                console.log(ret)
+                // console.log(ret)
                 _this.renderFooter(ret.channels)
             }).fail(function () {
-                console.log('error')
+                // console.log('error')
             })
     },
     renderFooter(channels) {
-        console.log(channels)
+        // console.log(channels)
         var html = ''
         channels.unshift({
             channel_id: 0,
@@ -133,7 +133,7 @@ var Fm = {
     bind() {
         var _this = this
         EventCenter.on('select-albumn', function (e, channel) {
-            console.log('select', channel)
+            // console.log('select', channel)
             _this.channelId = channel.channelId
             _this, channelName = channel.channelName
             _this.loadSong()
@@ -159,7 +159,7 @@ var Fm = {
                 _this.updateState()
                 _this.setLyric()
             }, 1000)
-            console.log('play')
+            // console.log('play')
         })
 
         this.audio.addEventListener('pause', function () {
@@ -167,14 +167,9 @@ var Fm = {
             if (_this.audio.currentTime === _this.audio.duration) {
                 _this.loadSong()
             } else {
-                console.log('pause')
+                // console.log('pause')
                 clearInterval(_this.clock)
             }
-        })
-
-        this.audio.addEventListener('end', function () {
-            console.log('end')
-
         })
 
         //如果已’喜欢‘,再次点击取消喜欢，样式改变且将该曲目从‘我的喜欢’专辑中移除
@@ -205,7 +200,7 @@ var Fm = {
         }
     },
     play(song) {
-        console.log(song)
+        // console.log(song)
         this.currentSong = song
         this.audio.src = song.url
         this.$container.find('.btn-play').removeClass('icon-play').addClass('icon-pause')
@@ -264,7 +259,7 @@ var Fm = {
         var _this = this
         $.getJSON('//jirenguapi.applinzi.com/fm/getLyric.php', { sid: sid })
             .done(function (ret) {
-                console.log(ret.lyric)
+                // console.log(ret.lyric)
                 var lyricObj = {}
                 ret.lyric.split('\n').forEach(function (line) {
                     var timeArr = line.match(/\d{2}:\d{2}/g)
@@ -275,25 +270,25 @@ var Fm = {
                     }
                 })
                 _this.lyricObj = lyricObj
-                console.log(_this.lyricObj)
+                // console.log(_this.lyricObj)
             })
     },
     setLyric() {
-        // console.log(this.lyricObj)
-        // if (this.lyricObj && this.lyricObj[this.formatTime()]) {
-        //     this.$container.find('.lyric p')
-        //         .text(this.lyricObj[this.formatTime()])
-        //         .boomText()
-        // }
-        // console.log(this.formatTime())
-
-        var timeStr = '0' + Math.floor(this.audio.currentTime / 60) + ':'
-            + (Math.floor(this.audio.currentTime) % 60 / 100).toFixed(2).substr(2)
-        if (this.lyricObj && this.lyricObj[timeStr]) {
-            this.$container.find('.lyric p').text(this.lyricObj[timeStr])
+        console.log(this.lyricObj)
+        if (this.lyricObj && this.lyricObj[this.formatTime()]) {
+            this.$container.find('.lyric p')
+                .text(this.lyricObj[this.formatTime()])
                 .boomText()
         }
-        console.log(timeStr)
+        console.log(this.formatTime())
+
+        // var timeStr = '0' + Math.floor(this.audio.currentTime / 60) + ':'
+        //     + (Math.floor(this.audio.currentTime) % 60 / 100).toFixed(2).substr(2)
+        // if (this.lyricObj && this.lyricObj[timeStr]) {
+        //     this.$container.find('.lyric p').text(this.lyricObj[timeStr])
+        //         .boomText()
+        // }
+        // console.log(timeStr)
     },
 }
 
