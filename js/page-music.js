@@ -276,8 +276,8 @@ var Fm = {
     setLyric() {
         console.log(this.lyricObj)
         if (this.lyricObj && this.lyricObj[this.formatTime()]) {
-            this.$container.find('.lyric')
-                // .text(this.lyricObj[this.formatTime()])
+            this.$container.find('.lyric span')
+                .text(this.lyricObj[this.formatTime()])
                 .boomText()
         }
         // console.log(this.formatTime())
