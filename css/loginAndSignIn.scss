@@ -1,13 +1,20 @@
-
-header {
+#loginAndSignIn{
+    z-index: 999;
     position: absolute;
-    top: 10px;
-    width: 100%;
-    >.icon-login {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    >header {
         position: absolute;
-        right: 20px;
-        font-size: 2em;
-        cursor: pointer;
+        top: 10px;
+        width: 100%;
+        >.icon-login {
+            position: absolute;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+        }
     }
 }
 
@@ -21,6 +28,9 @@ header {
     padding: 16px;
     background: white;
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, .3);
+    &.active{
+        box-shadow: 0 0 999px 999px rgba(0, 0, 0, .3);
+    }
     .close {
         display: block;
         font-size: 1.3em;

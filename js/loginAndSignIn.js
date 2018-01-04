@@ -6,13 +6,13 @@ var modalCt = $('.modal-ct')
 
 //modal状态切换
 $('.icon-login').on('click', function () {
-    modal.show()
+    modal.show().addClass('active')
 })
 $('.modal').on('click', '.close', function () {
-    modal.hide()
+    modal.hide().removeClass('active')
 })
 $('#loginAndSignIn main').on('click', function () {
-    modal.hide()
+    modal.hide().removeClass('active')
 })
 $('.modal').on('click', function (e) {
     e.stopPropagation()//阻止事件传播——防止点击modal本身时隐藏
