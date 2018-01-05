@@ -110,7 +110,8 @@ var Fm = {
     init() {
         this.channelId = 'public_shiguang_80hou'
         this.channelName = 'Dot'
-        this.$container = $('#page-music main')
+        // this.$container = $('#page-music main')
+        this.$container = $('main')
         this.audio = new Audio()
         this.audio.autoplay = true
         this.currentSong = null
@@ -204,7 +205,8 @@ var Fm = {
         this.currentSong = song
         this.audio.src = song.url
         this.$container.find('.btn-play').removeClass('icon-play').addClass('icon-pause')
-        this.$container.find('.aside figure').css('background-image', 'url(' + song.picture + ')')
+        // this.$container.find('.aside figure').css('background-image', 'url(' + song.picture + ')')
+        this.$container.find('figure').css('background-image', 'url(' + song.picture + ')')
         $('.bg').css('background-image', 'url(' + song.picture + ')')
         this.$container.find('.details h1').text(song.title)
         this.$container.find('.details .author').text(song.artist)

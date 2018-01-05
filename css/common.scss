@@ -21,3 +21,15 @@ a{
 ul,li{
     list-style: none;
 }
+
+section.hide{
+    display: none;
+}
+
+figure{
+    width: 46vh;
+    height: 46vh;
+    background: url('http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-middle') center center;
+    background-size: cover;
+}
+

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 #loginAndSignIn {
-  z-index: 999;
+  z-index: 10;
   position: absolute;
   display: none;
   top: 0;

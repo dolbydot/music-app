@@ -56,11 +56,6 @@
     clear: both; }
   #page-music > main .aside {
     float: left; }
-    #page-music > main .aside > figure {
-      width: 46vh;
-      height: 46vh;
-      background: url("http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-middle") center center;
-      background-size: cover; }
     #page-music > main .aside .actions {
       display: flex;
       margin-top: 4vh; }
@@ -75,16 +70,6 @@
       color: white; }
     #page-music > main .aside .iconfont.active {
       color: #ff5722; }
-  #page-music > main .details {
-    margin-left: 56vh;
-    color: white; }
-    #page-music > main .details .tag {
-      font-size: 2vh;
-      padding: .4em .8em;
-      background: #2e6eec; }
-    #page-music > main .details h1 {
-      font-size: 6vh;
-      margin-top: 2vh; }
   #page-music > main .icons {
     display: flex;
     font-size: 3vh;
@@ -94,36 +79,49 @@
     #page-music > main .icons .iconfont {
       font-size: 3vh;
       margin-right: 1vh; }
-  #page-music > main .area-bar {
-    margin-top: 10vh;
-    display: flex;
-    align-items: center; }
-    #page-music > main .area-bar .bar {
-      position: relative;
-      flex: 1;
-      height: .8vh;
-      border-radius: .2vh;
-      background: rgba(255, 255, 255, 0.4);
-      cursor: pointer; }
-    #page-music > main .area-bar .current-time {
-      width: 8vh;
-      font-size: 2vh;
-      margin-left: 1vh; }
-    #page-music > main .area-bar .bar-progress {
-      position: absolute;
-      height: .8vh;
-      width: 0%;
-      transition: width .8s;
-      background: white;
-      border-radius: .2vh; }
-  #page-music > main .author {
-    font-size: 2vh;
-    margin-top: 2vh;
-    color: rgba(255, 255, 255, 0.6); }
   #page-music > main .lyric {
     font-size: 3vh;
     margin-top: 3vh;
     color: white; }
+
+.details {
+  margin-left: 56vh;
+  color: white; }
+  .details .tag {
+    font-size: 2vh;
+    padding: .4em .8em;
+    background: #2e6eec; }
+  .details h1 {
+    font-size: 6vh;
+    margin-top: 2vh; }
+
+.area-bar {
+  margin-top: 10vh;
+  display: flex;
+  align-items: center; }
+  .area-bar .bar {
+    position: relative;
+    flex: 1;
+    height: .8vh;
+    border-radius: .2vh;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer; }
+  .area-bar .current-time {
+    width: 8vh;
+    font-size: 2vh;
+    margin-left: 1vh; }
+  .area-bar .bar-progress {
+    position: absolute;
+    height: .8vh;
+    width: 0%;
+    transition: width .8s;
+    background: white;
+    border-radius: .2vh; }
+
+.author {
+  font-size: 2vh;
+  margin-top: 2vh;
+  color: rgba(255, 255, 255, 0.6); }
 
 footer {
   height: 24vh;
