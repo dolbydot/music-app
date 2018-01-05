@@ -84,7 +84,19 @@
             color: #ff5722;
         }
     }
-
+    .details{
+        margin-left: 56vh;
+        color: white;
+        .tag{
+            font-size: 2vh;
+            padding: .4em .8em;
+            background: #2e6eec;
+        }
+        h1{
+            font-size: 6vh;
+            margin-top: 2vh;
+        }
+    }
     .icons{
         display: flex;
         font-size: 3vh;
@@ -97,58 +109,16 @@
             margin-right: 1vh;
         }
     }
+    .author{
+        font-size: 2vh;
+        margin-top: 2vh;
+        color: rgba(255, 255, 255, .6);
+    }
     .lyric{
         font-size: 3vh;
         margin-top: 3vh;
         color: white;
     }
-}
-
-.details{
-    margin-left: 56vh;
-    color: white;
-    .tag{
-        font-size: 2vh;
-        padding: .4em .8em;
-        background: #2e6eec;
-    }
-    h1{
-        font-size: 6vh;
-        margin-top: 2vh;
-    }
-}
-
-.area-bar{
-    margin-top: 10vh;
-    display: flex;
-    align-items: center;
-    .bar{
-        position: relative;
-        flex: 1;
-        height: .8vh;
-        border-radius: .2vh;
-        background: rgba(255, 255, 255, .4);
-        cursor: pointer;
-    }
-    .current-time{
-        width: 8vh;
-        font-size: 2vh;
-        margin-left: 1vh;
-    }
-    .bar-progress{
-        position: absolute; 
-        height: .8vh;
-        width: 0%;
-        transition: width .8s;
-        background: white;
-        border-radius: .2vh;
-    }
-}
-
-.author{
-    font-size: 2vh;
-    margin-top: 2vh;
-    color: rgba(255, 255, 255, .6);
 }
 
 footer{

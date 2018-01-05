@@ -29,7 +29,40 @@ section.hide{
 figure{
     width: 46vh;
     height: 46vh;
-    background: url('http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-middle') center center;
+    background: url('') center center;
     background-size: cover;
 }
+
+.area-bar{
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    .bar{
+        position: relative;
+        flex: 1;
+        height: .8vh;
+        border-radius: .2vh;
+        background: rgba(255, 255, 255, .4);
+        cursor: pointer;
+    }
+    .current-time{
+        width: 8vh;
+        font-size: 2vh;
+        margin-left: 1vh;
+    }
+    .bar-progress{
+        position: absolute; 
+        height: .8vh;
+        width: 0%;
+        transition: width .8s;
+        background: white;
+        border-radius: .2vh;
+    }
+}
+
+
+
+
+
+
 

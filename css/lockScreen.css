@@ -1,13 +1,20 @@
-#lockScreen {
-  z-index: 20;
+#lockScreen .ct-wrapper {
+  background: yellow;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; }
-  #lockScreen .ct-wrapper {
-    background: yellow;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); }
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; }
+  #lockScreen .ct-wrapper figure {
+    margin: 15vh auto; }
+
+#lockScreen .details {
+  height: 24vh;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px -0.25vh 0.25vh 0.25vh rgba(255, 255, 255, 0.2); }
+  #lockScreen .details .area-bar {
+    margin: 0 2vh 5vh 2vh; }
+  #lockScreen .details h1 {
+    margin-bottom: 2vh; }
