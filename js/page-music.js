@@ -226,7 +226,7 @@ var Fm = {
         this.$container.find('.bar').on('click', function (e) {
             var postX = e.clientX//postX为bar进度条当前点击位置距离浏览器窗口原点的水平距离
             // console.log(postX)
-            var outerLeft = $('.bar').getBoundingClientRect().x//bar原点距离浏览器窗口原点的水平距离
+            var outerLeft = document.querySelector('.bar').getBoundingClientRect().x//bar原点距离浏览器窗口原点的水平距离
             // console.log(outerLeft)
             var offsetLeft = postX - outerLeft//这里得到的是长度数字，没有单位，代表当前点击位置，即bar-progress的长度
             console.log(offsetLeft)
