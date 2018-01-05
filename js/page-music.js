@@ -224,7 +224,7 @@ var Fm = {
         this.$container.find('.current-time').text(this.formatTime())
         this.$container.find('.bar-progress').css('width', this.audio.currentTime / this.audio.duration * 100 + '%')
 
-        //以下为进度条逻辑
+        //以下为进度条逻辑，锁屏部分的进度条只做展示用，因为页面获得焦点后锁屏页面就消失了，所以不用管锁屏页面的进度条控制
         var _this = this
         this.$container.find('.bar').on('click', function (e) {
             var postX = e.clientX//postX为bar进度条当前点击位置距离浏览器窗口原点的水平距离
@@ -297,7 +297,22 @@ var Fm = {
         // }
         // console.log(timeStr)
     },
+    change() {
+        $('#loginAndSignIn').addClass('hide')
+        $('#page-music').addClass('hide')
+        $('#lockScreen').removeClass('hide')
+    }
 }
+
+//锁屏条件判断
+var changeKey = setInterval(Fm.change, 10000)
+document.querySelector('body').addEventListener('mousemove', function () {
+    clearInterval(changeKey)
+    $('#loginAndSignIn').removeClass('hide')
+    $('#page-music').removeClass('hide')
+    $('#lockScreen').addClass('hide')
+    changeKey = setInterval(Fm.change, 10000)
+})
 
 //歌词效果组件
 $.fn.boomText = function (type) {
