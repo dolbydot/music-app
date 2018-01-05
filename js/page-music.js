@@ -222,6 +222,7 @@ var Fm = {
         this.$container.find('.current-time').text(this.formatTime())
         this.$container.find('.bar-progress').css('width', this.audio.currentTime / this.audio.duration * 100 + '%')
 
+        //以下为进度条逻辑
         var _this = this
         this.$container.find('.bar').on('click', function (e) {
             var postX = e.clientX//postX为bar进度条当前点击位置距离浏览器窗口原点的水平距离
@@ -229,23 +230,12 @@ var Fm = {
             var outerLeft = document.querySelector('.bar').getBoundingClientRect().x//bar原点距离浏览器窗口原点的水平距离
             // console.log(outerLeft)
             var offsetLeft = postX - outerLeft//这里得到的是长度数字，没有单位，代表当前点击位置，即bar-progress的长度
-            console.log(offsetLeft)
+            // console.log(offsetLeft)
             var percentage = offsetLeft / $('.bar').width()
-            console.log(percentage)
+            // console.log(percentage)
             _this.audio.currentTime = _this.audio.duration * percentage
             $('.bar-progress').css('width', _this.audio.currentTime / _this.audio.duration * 100 + '%')
-            console.log($('.bar-progress').css('width'))
         })
-        // var _this = this
-        // $('.bar').on('mousedown', function (e) {
-        //     var barWidth = window.getComputedStyle($('.bar')).width
-        //         .replace(/\.\d+px$/, '')
-        //     var posX = e.clientX//当前点击位置距离浏览器窗口原点的水平距离
-        //     var targetLeft = $('.bar').offsetLeft//$('.bar')原点距离main原点的水平距离
-        //     var outerLeft = _this.$container.getBoundingClientRect().x//main原点距离浏览器窗口原点的水平距离
-        //     var percentage = (posX - targetLeft - outerLeft) / barWidth
-        //     _this.audio.currentTime = _this.audio.duration * percentage
-        // })
     },
     formatTime() {
         var totalMinutes = Math.floor(this.audio.duration / 60)

@@ -103,7 +103,8 @@
       flex: 1;
       height: .8vh;
       border-radius: .2vh;
-      background: rgba(255, 255, 255, 0.4); }
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer; }
     #page-music > main .area-bar .current-time {
       width: 8vh;
       font-size: 2vh;
