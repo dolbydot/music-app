@@ -230,7 +230,9 @@ var Fm = {
             console.log(outerLeft)
             console.log($('.bar-progress'))
             $('.bar-progress').width() = postX - outerLeft//这里得到的是长度数字，没有单位
+            console.log($('.bar-progress').width())
             var percentage = $('.bar-progress').width() / $('.bar').width()
+            console.log(percentage)
             _this.audio.currentTime = _this.audio.duration * percentage
             $('.bar-progress').css('width', _this.audio.currentTime / _this.audio.duration * 100 + '%')
         })
