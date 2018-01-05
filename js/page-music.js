@@ -222,6 +222,18 @@ var Fm = {
         this.$container.find('.current-time').text(this.formatTime())
         this.$container.find('.bar-progress').css('width', this.audio.currentTime / this.audio.duration * 100 + '%')
 
+        var _this = this
+        this.$container.find('.bar').on('click', function (e) {
+            var postX = e.clientX//postX为bar进度条当前点击位置距离浏览器窗口原点的水平距离
+            console.log(postX)
+            var outerLeft = document.querySelector('.bar').getBoundingClientRect().x//bar原点距离浏览器窗口原点的水平距离
+            console.log(outerLeft)
+            console.log($('.bar-progress'))
+            $('.bar-progress').width() = postX - outerLeft//这里得到的是长度数字，没有单位
+            var percentage = $('.bar-progress').width() / $('.bar').width()
+            _this.audio.currentTime = _this.audio.duration * percentage
+            $('.bar-progress').css('width', _this.audio.currentTime / _this.audio.duration * 100 + '%')
+        })
         // var _this = this
         // $('.bar').on('mousedown', function (e) {
         //     var barWidth = window.getComputedStyle($('.bar')).width
